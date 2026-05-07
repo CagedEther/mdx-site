@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import MdxPage from "@/pages/MdxPage";
 
 const queryClient = new QueryClient();
 
@@ -12,6 +13,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/calculator" component={Home} />
+      {/* Any .mdx file in src/content/pages/ auto-becomes a route here */}
+      <Route path="/:slug" component={MdxPage} />
       <Route component={NotFound} />
     </Switch>
   );
