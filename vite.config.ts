@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@mdx-js/rollup";
 import remarkGfm from "remark-gfm";
+import remarkFrontmatter from "remark-frontmatter";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
@@ -31,7 +32,7 @@ if (!basePath) {
 export default defineConfig({
   base: basePath,
   plugins: [
-    { enforce: "pre", ...mdx({ remarkPlugins: [remarkGfm] }) },
+    { enforce: "pre", ...mdx({ remarkPlugins: [remarkFrontmatter, remarkGfm] }) },
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),
