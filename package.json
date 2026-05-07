@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "sync": "node scripts/sync-from-github.mjs",
+    "predev": "node scripts/sync-from-github.mjs",
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
+    "prebuild": "node scripts/sync-from-github.mjs",
     "build": "vite build --config vite.config.ts",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
@@ -77,6 +80,7 @@
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
+    "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1"
   }
 }
